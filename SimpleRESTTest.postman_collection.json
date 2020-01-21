@@ -32,12 +32,12 @@
 				],
 				"body": {},
 				"url": {
-					"raw": "{{protocol}}://{{host}}:{{port}}/test/hello?sap-client={{client}}&sap-language=EN",
-					"protocol": "{{protocol}}",
+					"raw": "http://in-blr-1709.corp.capgemini.com:8000/test/hello?sap-client=600&sap-language=EN",
+					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"in-blr-1709.corp.capgemini.com"
 					],
-					"port": "{{port}}",
+					"port": "8000",
 					"path": [
 						"test",
 						"hello"
@@ -45,7 +45,7 @@
 					"query": [
 						{
 							"key": "sap-client",
-							"value": "{{client}}",
+							"value": "600",
 							"equals": true
 						},
 						{
@@ -90,12 +90,12 @@
 					"raw": "{\n\t\"name\": \"John\",\n\t\"age\": 32,\n\t\"city\": \"Bangkok\"\n}"
 				},
 				"url": {
-					"raw": "{{protocol}}://{{host}}:{{port}}/test/hello?sap-client={{client}}&sap-language=EN",
-					"protocol": "{{protocol}}",
+					"raw": "http://in-blr-1709.corp.capgemini.com:8000/test/hello?sap-client=600&sap-language=EN",
+					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"in-blr-1709.corp.capgemini.com"
 					],
-					"port": "{{port}}",
+					"port": "8000",
 					"path": [
 						"test",
 						"hello"
@@ -103,7 +103,7 @@
 					"query": [
 						{
 							"key": "sap-client",
-							"value": "{{client}}",
+							"value": "600",
 							"equals": true
 						},
 						{
@@ -122,12 +122,12 @@
 		"basic": [
 			{
 				"key": "password",
-				"value": "{{password}}",
+				"value": "Init@1234",
 				"type": "string"
 			},
 			{
 				"key": "username",
-				"value": "{{username}}",
+				"value": "DEV_ECQ2",
 				"type": "string"
 			},
 			{
