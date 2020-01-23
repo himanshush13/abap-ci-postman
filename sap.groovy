@@ -2,7 +2,6 @@ import jenkins.model.*
 
 def GITURL = 'https://github.com/himanshush13/abap-ci-postman.git'
 def BRANCH = 'master'
-def PIPELINE_GITURL = 'https://github.com/pacroy/abap-ci-postman.git'
 def PACKAGE = '''$zdevops'''
 def COVERAGE = 80
 def VARIANT = "DEFAULT"
@@ -17,10 +16,12 @@ parallel (
         	git poll: true, branch: BRANCH, url: GITURL
         		
         	stage('[' + LABEL + '] Preparation') {
-        		deleteDir()
-        		dir('sap-pipeline') {
-        			bat "git clone " + PIPELINE_GITURL + " ."
-        		}
+        		  steps{
+                     withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'ID OF YOUR CREDENTIALS', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+                     sh '''
+                     newman run https://github.com/himanshush13/abap-ci-postman/master/SimpleRESTTest.postman_collection.json -k --bail --environment https://github.com/himanshush13/abap-ci-postman/master/SimpleRESTTest.postman_collection.json -k --timeout-request 120000 --global-var "username=$USERNAME" --global-var "password=$PASSWORD" --global-var "package=$zdevops" 
+                     '''
+                     }
         	}
         	
         	def sap_pipeline = load "sap-pipeline/sap.groovy"
