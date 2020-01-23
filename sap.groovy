@@ -3,7 +3,7 @@ import jenkins.model.*
 def GITURL = 'https://github.com/himanshush13/abap-ci-postman.git'
 def BRANCH = 'master'
 def PIPELINE_GITURL = 'https://github.com/pacroy/abap-ci-postman.git'
-def PACKAGE = '''$REST_SIMPLE'''
+def PACKAGE = '''$zdevops'''
 def COVERAGE = 80
 def VARIANT = "DEFAULT"
 
@@ -11,7 +11,7 @@ parallel (
     "NPL":{
         node {
         	def LABEL = "NPL"
-        	def HOST = "vhcalnplci.dummy.nodomain"
+        	def HOST = "in-blr-1709.corp.capgemini.com"
         	def CREDENTIAL = "NPL"
         	
         	git poll: true, branch: BRANCH, url: GITURL
